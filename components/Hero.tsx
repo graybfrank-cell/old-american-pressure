@@ -31,9 +31,11 @@ export function Hero() {
         aria-hidden="true"
         className="absolute inset-0 bg-[var(--ink)] overflow-hidden"
       >
-        <video
+        
+<video
           className="w-full h-full object-cover"
           src="/media/hero.mp4"
+          poster="/media/hero.jpg"
           autoPlay
           loop
           muted
