@@ -10,7 +10,6 @@ const fraunces = Fraunces({
   subsets: ["latin"],
   variable: "--font-display",
   display: "swap",
-  weight: ["400", "500", "600"],
   axes: ["opsz"],
 });
 
@@ -18,7 +17,7 @@ const monaSans = Mona_Sans({
   subsets: ["latin"],
   variable: "--font-sans",
   display: "swap",
-  weight: ["400", "500", "600"],
+
 });
 
 const siteUrl = `https://${site.domain}`;
@@ -86,7 +85,7 @@ const jsonLd = {
     {
       "@type": "Service",
       "@id": `${siteUrl}#service`,
-      serviceType: "RV exterior cleaning",
+      serviceType: "Exterior lot cleaning",
       provider: { "@id": `${siteUrl}#business` },
       areaServed: { "@type": "City", name: site.city },
       description: meta.description,
