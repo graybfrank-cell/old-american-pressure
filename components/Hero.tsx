@@ -26,20 +26,21 @@ export function Hero() {
         md:min-h-[100svh]
       "
     >
-      {/*
-        Backdrop — solid --ink fallback; swapped to /media/hero.jpg when present.
-        PLACEHOLDER_HERO_BACKDROP — Grayson will drop in real footage later.
-      */}
+      {/* Backdrop — looping cinematic video; --ink fallback if video fails. */}
       <div
         aria-hidden="true"
-        data-placeholder="PLACEHOLDER_HERO_BACKDROP"
-        className="absolute inset-0 bg-[var(--ink)]"
-        style={{
-          backgroundImage: "url(/media/hero.jpg)",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      />
+        className="absolute inset-0 bg-[var(--ink)] overflow-hidden"
+      >
+        <video
+          className="w-full h-full object-cover"
+          src="/media/hero.mp4"
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="auto"
+        />
+      </div>
 
       {/* Scrim — bottom-up dark gradient keeps text/form legible over any image. */}
       <div
