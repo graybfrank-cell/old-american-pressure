@@ -1,5 +1,8 @@
 import { z } from "zod";
-import { lotSizeOptions } from "./content";
+
+// RV pivot — lot size now measured in units, not vehicles.
+export const lotSizeValues = ["10-25", "25-50", "50-100", "100+"] as const;
+export type LotSizeValue = (typeof lotSizeValues)[number];
 
 // Phone: allow common formatting (digits, spaces, parens, dashes, +).
 // Require at least 10 digits.
@@ -26,7 +29,7 @@ export const leadSchema = z.object({
     .optional()
     .or(z.literal("")),
   lotSize: z
-    .enum(lotSizeOptions as unknown as [string, ...string[]])
+    .enum(lotSizeValues)
     .optional()
     .or(z.literal("")),
 });

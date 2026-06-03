@@ -1,8 +1,8 @@
 "use client";
 
 import { motion } from "motion/react";
-import { hero } from "@/lib/content";
-import { Button } from "./ui/Button";
+import { hero, trustStrip } from "@/lib/content";
+import { LeadForm } from "./LeadForm";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
@@ -18,77 +18,128 @@ const item = {
 export function Hero() {
   return (
     <section
+      id="quote"
       aria-labelledby="hero-heading"
-      className="bg-[var(--paper)] pt-10 md:pt-16 pb-20 md:pb-28"
+      className="
+        relative overflow-hidden
+        flex flex-col
+        md:min-h-[100svh]
+      "
     >
-      <div className="container-content">
-        <div className="max-w-3xl">
-          <motion.p
-            className="eyebrow"
-            initial="hidden"
-            animate="show"
-            custom={0}
-            variants={item}
-          >
-            {hero.eyebrow}
-          </motion.p>
+      {/*
+        Backdrop — solid --ink fallback; swapped to /media/hero.jpg when present.
+        PLACEHOLDER_HERO_BACKDROP — Grayson will drop in real footage later.
+      */}
+      <div
+        aria-hidden="true"
+        data-placeholder="PLACEHOLDER_HERO_BACKDROP"
+        className="absolute inset-0 bg-[var(--ink)]"
+        style={{
+          backgroundImage: "url(/media/hero.jpg)",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      />
 
-          <motion.h1
-            id="hero-heading"
-            className="mt-5 font-display text-[var(--ink)]"
-            initial="hidden"
-            animate="show"
-            custom={1}
-            variants={item}
-          >
-            {hero.h1}
-          </motion.h1>
+      {/* Scrim — bottom-up dark gradient keeps text/form legible over any image. */}
+      <div
+        aria-hidden="true"
+        className="
+          absolute inset-0
+          bg-gradient-to-t from-black/60 via-black/25 to-black/10
+        "
+      />
 
-          <motion.p
-            className="mt-6 max-w-2xl text-[1.125rem] md:text-[1.1875rem] text-[var(--steel)] leading-relaxed"
-            initial="hidden"
-            animate="show"
-            custom={2}
-            variants={item}
-          >
-            {hero.subhead}
-          </motion.p>
+      {/* Content */}
+      <div className="relative flex-1 flex flex-col">
+        <div
+          className="
+            container-content flex-1
+            grid md:grid-cols-12 gap-10 md:gap-12
+            items-center
+            pt-16 pb-20 md:pt-24 md:pb-24
+          "
+        >
+          {/* Copy column */}
+          <div className="md:col-span-7 text-[var(--paper)]">
+            <motion.p
+              className="eyebrow text-[var(--paper)]/80"
+              initial="hidden"
+              animate="show"
+              custom={0}
+              variants={item}
+            >
+              {hero.eyebrow}
+            </motion.p>
 
+            <motion.h1
+              id="hero-heading"
+              className="
+                mt-5 font-display text-[var(--paper)]
+                [text-wrap:balance]
+              "
+              initial="hidden"
+              animate="show"
+              custom={1}
+              variants={item}
+            >
+              {hero.h1}
+            </motion.h1>
+
+            <motion.p
+              className="
+                mt-6 max-w-xl
+                text-[1.0625rem] md:text-[1.1875rem]
+                text-[var(--paper)]/85 leading-relaxed
+              "
+              initial="hidden"
+              animate="show"
+              custom={2}
+              variants={item}
+            >
+              {hero.subhead}
+            </motion.p>
+          </div>
+
+          {/* Form column */}
           <motion.div
-            className="mt-9 flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-5"
+            className="md:col-span-5"
             initial="hidden"
             animate="show"
             custom={3}
             variants={item}
           >
-            <Button href={hero.primaryCtaHref}>{hero.primaryCtaLabel}</Button>
-            <a
-              href={hero.secondaryCtaHref}
-              className="
-                text-[var(--ink)] hover:text-[var(--accent)] transition-colors
-                text-[0.9375rem] underline-offset-4 hover:underline tabular-nums
-              "
-            >
-              {hero.secondaryCtaLabel}
-            </a>
+            <LeadForm />
           </motion.div>
         </div>
 
-        {/* Visual placeholder — solid --ink 16:9 block. PLACEHOLDER_HERO_VISUAL */}
-        <motion.div
+        {/* Trust strip — sits at the bottom of the hero. */}
+        <motion.ul
           className="
-            mt-14 md:mt-20 w-full bg-[var(--ink)] rounded-sm
-            aspect-[16/9] relative overflow-hidden
+            relative
+            container-content
+            pb-8 md:pb-10
+            flex flex-wrap items-center justify-center
+            gap-x-3 md:gap-x-5 gap-y-2
+            text-[0.8125rem] md:text-[0.875rem]
+            text-[var(--paper)]/70
           "
-          initial={{ opacity: 0, y: 18 }}
+          initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease, delay: 0.4 }}
-          role="img"
-          aria-label="Hero visual placeholder"
-          data-placeholder={hero.visualPlaceholder}
+          transition={{ duration: 0.5, ease, delay: 0.55 }}
+          aria-label="Trust signals"
         >
-          <span className="sr-only">{hero.visualPlaceholder}</span>
-        </motion.div>
+          {trustStrip.map((label, i) => (
+            <li key={label} className="flex items-center gap-3 md:gap-5">
+              <span>{label}</span>
+              {i < trustStrip.length - 1 && (
+                <span aria-hidden="true" className="text-[var(--paper)]/30">
+                  ·
+                </span>
+              )}
+            </li>
+          ))}
+        </motion.ul>
       </div>
     </section>
   );

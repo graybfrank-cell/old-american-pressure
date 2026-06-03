@@ -3,6 +3,8 @@ import { header, site } from "@/lib/content";
 import { Button } from "./ui/Button";
 
 export function Header() {
+  const phoneHref = `tel:${site.phone}`;
+
   return (
     <header
       className="
@@ -22,7 +24,7 @@ export function Header() {
 
         <nav className="flex items-center gap-3 md:gap-5">
           <a
-            href={site.phoneHref}
+            href={phoneHref}
             className="
               hidden sm:inline text-[0.9375rem] text-[var(--ink)]
               hover:text-[var(--accent)] transition-colors
@@ -32,7 +34,7 @@ export function Header() {
             {site.phoneDisplay}
           </a>
           <a
-            href={site.phoneHref}
+            href={phoneHref}
             aria-label={`Call ${site.phoneDisplay}`}
             className="
               sm:hidden inline-flex h-10 w-10 items-center justify-center
