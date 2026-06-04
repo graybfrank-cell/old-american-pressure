@@ -1,4 +1,4 @@
-// lib/content.ts — RV pivot v1.1
+// lib/content.ts — Commercial lot pivot v1.2
 // Single source of truth for all page copy.
 // PLACEHOLDER_* values are intentional; swap in the visual iteration pass.
 
@@ -13,9 +13,9 @@ export const site = {
 };
 
 export const meta = {
-  title: "Old American Pressure — RV Lot Cleaning in Austin, TX",
+  title: "Old American Pressure — Commercial Lot Cleaning in Austin, TX",
   description:
-    "Recurring exterior cleaning for RV dealership inventory in the Austin metro. Mobile service, predictable contracts, sell-ready lots.",
+    "Recurring exterior cleaning for car, RV, equipment, and truck dealerships in the Austin metro. Mobile service, predictable contracts, sell-ready lots.",
 };
 
 // ─── Header ──────────────────────────────────────────────────────────────────
@@ -25,12 +25,12 @@ export const header = {
   ctaHref: "#quote",
 };
 
-// ─── Hero (now contains the inline lead form) ────────────────────────────────
+// ─── Hero (contains the inline lead form) ────────────────────────────────────
 export const hero = {
-  eyebrow: "RV LOT CLEANING · AUSTIN, TX",
-  h1: "Sell-Ready RVs. Every Photo. Every Walk-Up.",
+  eyebrow: "COMMERCIAL LOT CLEANING · AUSTIN, TX",
+  h1: "Clean Lots Sell Faster.",
   subhead:
-    "Recurring exterior cleaning for RV dealerships in the Austin metro. We come to your lot, wash the inventory, and keep it photo-ready — on a schedule you can count on.",
+    "Recurring exterior cleaning for car, RV, equipment, and truck dealerships in the Austin metro. We come to your lot, wash the inventory, and keep it sell-ready — on a schedule you can count on.",
   // Form lives directly under the subhead on the hero.
   formHeading: "Get your free lot walk",
   formSub: "15 minutes on-site. No obligation. Jake will call you within one business day.",
@@ -57,7 +57,7 @@ export const howItWorks = {
     },
     {
       title: "We clean the exterior.",
-      body: "Spray, wipe, and dress — unit after unit. Built for the size and surface area of RVs.",
+      body: "Spray, wipe, and dress — unit after unit. Built for the surface area and turnover of a working lot.",
     },
     {
       title: "Your lot stays sell-ready.",
@@ -66,11 +66,11 @@ export const howItWorks = {
   ],
 };
 
-// ─── Proof / About (short tail — one paragraph, no testimonial card) ─────────
+// ─── Proof / About (short tail — one paragraph) ──────────────────────────────
 export const proof = {
   eyebrow: "BUILT IN LUBBOCK",
   h2: "A trade business, run by people who've done it.",
-  body: "Old American Pressure is run by Jake, alongside his brother Jason — who's worked in this industry for years. The model is already running with dealerships in Lubbock, TX, and Jake is bringing it to the Austin metro. No franchise gloss, no upsells. Just consistent, recurring exterior cleaning for RV inventory.",
+  body: "Old American Pressure is run by Jake, alongside his brother Jason — who's worked in this industry for years. The model is already running with dealerships in Lubbock, TX, and Jake is bringing it to the Austin metro. No franchise gloss, no upsells. Just consistent, recurring exterior cleaning for the inventory on your lot.",
 };
 
 // ─── Final CTA (sits just above the footer for the scrollers) ────────────────
@@ -85,7 +85,7 @@ export const finalCta = {
 // ─── Footer ──────────────────────────────────────────────────────────────────
 export const footer = {
   wordmark: "Old American Pressure",
-  tagline: "RV lot cleaning · Austin Metro & surrounding markets",
+  tagline: "Commercial lot cleaning · Austin Metro & surrounding markets",
   copyright: "© Old American Pressure 2026",
 };
 
@@ -94,7 +94,7 @@ export const leadForm = {
   fields: {
     name: { label: "Name", placeholder: "Your name", required: true },
     phone: { label: "Phone", placeholder: "(512) 555-0100", required: true },
-    dealership: { label: "Dealership", placeholder: "Dealership name (optional)", required: false },
+    dealership: { label: "Dealership", placeholder: "Dealership or company name (optional)", required: false },
     lotSize: {
       label: "Lot size",
       required: false,

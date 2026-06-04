@@ -85,7 +85,7 @@ const jsonLd = {
     {
       "@type": "Service",
       "@id": `${siteUrl}#service`,
-      serviceType: "Exterior lot cleaning",
+      serviceType: "Commercial lot cleaning",
       provider: { "@id": `${siteUrl}#business` },
       areaServed: { "@type": "City", name: site.city },
       description: meta.description,
