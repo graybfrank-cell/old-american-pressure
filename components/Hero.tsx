@@ -31,9 +31,9 @@ export function Hero() {
         aria-hidden="true"
         className="absolute inset-0 bg-[var(--ink)] overflow-hidden"
       >
-        
-<video
+        <video
           className="w-full h-full object-cover"
+          style={{ filter: "contrast(1.12) saturate(0.82) brightness(0.93)" }}
           src="/media/hero.mp4"
           poster="/media/hero.jpg"
           autoPlay
@@ -44,13 +44,15 @@ export function Hero() {
         />
       </div>
 
-      {/* Scrim — bottom-up dark gradient keeps text/form legible over any image. */}
+      {/* Scrim — directional --ink gradient. */}
       <div
         aria-hidden="true"
-        className="
-          absolute inset-0
-          bg-gradient-to-t from-black/60 via-black/25 to-black/10
-        "
+        className="absolute inset-0"
+        style={{
+          background:
+            "linear-gradient(101deg, rgba(19,35,58,0.22) 0%, rgba(19,35,58,0.13) 43%, rgba(19,35,58,0) 82%), " +
+            "linear-gradient(0deg, rgba(19,35,58,0.55) 0%, rgba(19,35,58,0.19) 26%, rgba(19,35,58,0) 48%)",
+        }}
       />
 
       {/* Content */}
@@ -66,7 +68,7 @@ export function Hero() {
           {/* Copy column */}
           <div className="md:col-span-7 text-[var(--paper)]">
             <motion.p
-              className="eyebrow text-[var(--paper)]/80"
+              className="eyebrow text-[var(--paper)]"
               initial="hidden"
               animate="show"
               custom={0}
@@ -116,7 +118,7 @@ export function Hero() {
           </motion.div>
         </div>
 
-        {/* Trust strip — sits at the bottom of the hero. */}
+        {/* Trust strip. */}
         <motion.ul
           className="
             relative
